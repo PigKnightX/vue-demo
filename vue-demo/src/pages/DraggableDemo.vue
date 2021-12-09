@@ -1,30 +1,20 @@
 <template>
     <div>
-        <draggable v-model="myArray" group="people" @start="drag=true" @end="drag=false">
-            <div 
-                v-for="element in myArray" 
-                :key="element.id"
-                class="draggable-item"
-            >
-                {{element.name}}
-            </div>
-        </draggable>
+        <DraggableComponent 
+            class="draggable-outer"
+        />
     </div>
 </template>
 <script>
-import draggable from 'vuedraggable'
+import DraggableComponent from '../components/draggble-component.vue'
 
 export default {
     components: {
-        draggable
+        DraggableComponent
     },
     data() {
         return {
-            myArray: [
-                {id: 1, name: '111'},
-                {id: 2, name: '222'},
-                {id: 3, name: '333'}
-            ]
+            
         }
     }
     
@@ -32,8 +22,6 @@ export default {
 </script>
 <style lang="css" scoped>
 .draggable-item {
-    border: 1px solid gray;
-    margin: 5px;
-    display: inline-flex
+    margin: 10px;
 }
 </style>
