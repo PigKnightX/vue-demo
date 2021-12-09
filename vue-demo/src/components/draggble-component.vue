@@ -44,15 +44,13 @@ export default {
         addItem() {
             this.myArray.push({name: `A-${id}`, id: id++ })
 
-            // TODO: let 「Add」show up all time
+            // let 「Add」show up all time
             const draggbleBox = this.$refs.draggbleBox
             const addButton = this.$refs.addButton
-
-
-            // Is not working :( 
-            draggbleBox.scrollLeft = draggbleBox.scrollWidth
-
-
+            
+            this.$nextTick(() => {
+                draggbleBox.scrollLeft = draggbleBox.scrollWidth
+            })
         }
     }
     
