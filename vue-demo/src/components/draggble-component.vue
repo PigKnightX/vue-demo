@@ -4,12 +4,14 @@
         ref="draggbleBox"
     >
         <draggable 
-            v-model="myArray" 
+            v-model="selfArr"
+            v-bind="dragOptions"
             draggable=".draggble-item"
-            @start="drag=true" 
-            @end="drag=false">
+            @start="drag=true"
+            @end="drag=false"
+        >
             <div 
-                v-for="element in myArray" 
+                v-for="element in selfArr" 
                 :key="element.id"
                 class="draggble-item"
             >
@@ -35,18 +37,36 @@ export default {
     components: {
         draggable
     },
+    props:['draggableArray'],
     data() {
         return {
-            myArray: []
+            selfArr: this.draggableArray,
+            drag: false
+        }
+    },
+    watch: {
+        selfArr: {
+            immediate: true,
+            handler (newVal) {
+                this.$emit('update:draggableArray', newVal)
+            },
+            deep: true
+        }
+    },
+    computed: {
+        dragOptions() {
+            return {
+                animation: 200,
+                disabled: false,
+            }
         }
     },
     methods: {
         addItem() {
-            this.myArray.push({name: `A-${id}`, id: id++ })
+            this.selfArr.push({name: `A-${id}`, id: id++ })
 
             // let 「Add」show up all time
             const draggbleBox = this.$refs.draggbleBox
-            const addButton = this.$refs.addButton
             
             this.$nextTick(() => {
                 draggbleBox.scrollLeft = draggbleBox.scrollWidth

@@ -2,6 +2,7 @@
     <div>
         <DraggableComponent 
             class="draggable-outer"
+            :draggableArray.sync="myArr"
         />
     </div>
 </template>
@@ -14,10 +15,9 @@ export default {
     },
     data() {
         return {
-            
+            myArr: []
         }
     }
-    
 }
 </script>
 <style lang="css" scoped>
