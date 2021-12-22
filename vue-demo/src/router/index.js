@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/pages/HelloWorld'
 import Draggable from '@/pages/DraggableDemo.vue'
+import CardDemo from '@/pages/CardDemo.vue'
 
 Vue.use(Router)
 
@@ -9,7 +10,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/draggableDemo'
+      redirect: '/cardDemo'
     },
     {
       path: '/helloWorld',
@@ -20,6 +21,11 @@ export default new Router({
       path: '/draggableDemo',
       name: 'draggableDemo',
       component: Draggable
+    },
+    {
+      path: '/cardDemo',
+      name: 'cardDemo',
+      component: CardDemo
     }
   ]
 })
