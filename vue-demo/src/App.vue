@@ -21,7 +21,6 @@ export default {
   width: 100%;
   background: #fff;
   color: #2c3e50;
-  /* font-size: 0.14rem; */
   margin: 0 auto;
   max-width: 750px;
   position: relative;
