@@ -12,6 +12,10 @@ export default new Router({
     {
       path: '/',
       redirect: '/vueDirectiveDemo',
+    },
+    {
+      path: '/vueDirectiveDemo',
+      name: 'vueDirectiveDemo',
       component: VueDirectiveDemo
     },
     {
