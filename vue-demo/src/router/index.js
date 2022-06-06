@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/pages/HelloWorld'
 import Draggable from '@/pages/DraggableDemo.vue'
 import VantDemo from '@/pages/VantDemo.vue'
+import VueDirectiveDemo from '@/pages/VueDirectiveDemo.vue'
 
 Vue.use(Router)
 
@@ -10,7 +11,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/cardDemo'
+      redirect: '/vueDirectiveDemo',
+      component: VueDirectiveDemo
     },
     {
       path: '/helloWorld',
